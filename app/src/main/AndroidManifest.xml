@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Produtos">
         <activity
-            android:name=".ViewProductActivity"
+            android:name=".activity.ViewProductActivity"
             android:exported="true" />
         <activity
-            android:name=".AddProductActivity"
+            android:name=".activity.AddProductActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

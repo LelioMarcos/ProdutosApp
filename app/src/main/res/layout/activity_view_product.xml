@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewProductActivity">
+    tools:context=".activity.ViewProductActivity">
 
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imvPhotoProduct"
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginStart="8dp"

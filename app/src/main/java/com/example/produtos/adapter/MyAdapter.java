@@ -1,4 +1,4 @@
-package com.example.produtos;
+package com.example.produtos.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.produtos.model.Product;
+import com.example.produtos.R;
+import com.example.produtos.activity.ViewProductActivity;
 
 import java.util.List;
 

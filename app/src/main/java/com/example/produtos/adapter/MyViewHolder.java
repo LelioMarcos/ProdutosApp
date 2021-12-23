@@ -1,4 +1,4 @@
-package com.example.produtos;
+package com.example.produtos.adapter;
 
 import android.view.View;
 

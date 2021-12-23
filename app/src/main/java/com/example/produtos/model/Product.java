@@ -1,4 +1,4 @@
-package com.example.produtos;
+package com.example.produtos.model;
 
 import android.graphics.Bitmap;
 
