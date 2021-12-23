@@ -15,6 +15,7 @@ import com.example.produtos.adapter.MyAdapter;
 import com.example.produtos.model.MainViewModel;
 import com.example.produtos.model.Product;
 import com.example.produtos.model.ViewProductViewModel;
+import com.example.produtos.util.ImageCache;
 
 import java.util.List;
 
@@ -28,13 +29,16 @@ public class ViewProductActivity extends AppCompatActivity {
         Intent i = getIntent();
         String pid = i.getStringExtra("pid");
 
+        // Criar um viewmodel, passando como parâmetro o id do produto.
         ViewProductViewModel viewProductViewModel = new ViewModelProvider(this, new ViewProductViewModel.ViewProductViewModelFactory(pid)).get(ViewProductViewModel.class);
         LiveData<Product> product = viewProductViewModel.getProduct();
         product.observe(this, new Observer<Product>() {
+            // Preencher os campos com os dados do produto
             @Override
             public void onChanged(Product product) {
+                // Pegar a imagem no cache da aplicação.
                 ImageView imvPhotoProduct = findViewById(R.id.imvPhotoProduct);
-                imvPhotoProduct.setImageBitmap(product.getPhoto());
+                ImageCache.loadToImageView(ViewProductActivity.this, product.getId(), imvPhotoProduct);
 
                 TextView tvName = findViewById(R.id.tvName);
                 tvName.setText(product.getName());

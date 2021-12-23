@@ -11,8 +11,8 @@ import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+// Cache para diminuir o tempo de carregamento das imagens
 public class ImageCache {
-
     public static void loadToImageView(Activity activity, String pid, ImageView imageView) {
         //Checar se a imagem já existe no dispositivo.
         String imageLocation = activity.getExternalFilesDir(Environment.DIRECTORY_PICTURES) + "/" + pid;
@@ -20,7 +20,7 @@ public class ImageCache {
         if (f.exists() && !f.isDirectory()) {
             imageView.setImageBitmap(Util.getBitmap(imageLocation));
         }
-        else { // Senão, pegar a imagem no banco de dados utilizando o crud.
+        else { // Se não, pegar a imagem no banco de dados utilizando o crud.
             ExecutorService executorService = Executors.newSingleThreadExecutor();
             executorService.execute(new Runnable() {
                 @Override

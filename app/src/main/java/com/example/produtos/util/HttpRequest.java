@@ -20,29 +20,29 @@ import java.util.Map;
 /*
     A classe HttpRequest permite fazer requisicoes HTTP do tipo GET ou POST a um servidor web. Em
     aplicacoes Android ela deve sempre ser usada em uma nova thread, diferente da thread principal
-    de UI, para garantir que a app nao ira travar por conta da espera de resposta do servidor web.
+        de UI, para garantir que a app nao ira travar por conta da espera de resposta do servidor web.
 
-    Exemplo de uso:
+        Exemplo de uso:
 
-            HttpRequest httpRequest = new HttpRequest( "www.algo.com.br/faca_alguma_coisa.php", "POST", "UTF-8");
+        HttpRequest httpRequest = new HttpRequest( "www.algo.com.br/faca_alguma_coisa.php", "POST", "UTF-8");
 
-            httpRequest.addParam("param1", "value1");
-            httpRequest.addParam("param2", "value2");
-            httpRequest.addFile("file1", new File(path));
+        httpRequest.addParam("param1", "value1");
+        httpRequest.addParam("param2", "value2");
+        httpRequest.addFile("file1", new File(path));
 
-            // Caso seja necessario autenticar
-            httpRequest.setBasicAuth(user, password);
+        // Caso seja necessario autenticar
+        httpRequest.setBasicAuth(user, password);
 
-            InputStream is = httpRequest.execute();
+        InputStream is = httpRequest.execute();
 
-            String result = Util.inputStream2String(is, "UTF-8");
+        String result = Util.inputStream2String(is, "UTF-8");
 
-            // a conexao sempre deve ser fechada
-            httpRequest.finish();
+        // a conexao sempre deve ser fechada
+        httpRequest.finish();
 
-            ... faca alguma coisa com result ...
+        ... faca alguma coisa com result ...
 
- */
+        */
 public class HttpRequest {
 
     private String method;

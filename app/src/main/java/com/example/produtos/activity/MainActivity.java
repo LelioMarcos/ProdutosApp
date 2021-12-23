@@ -1,3 +1,11 @@
+/*
+        ----------------------------
+        |       App Produtos       |
+        |       Lélio Marcos       |
+        |   Dispositivos Móveis    |
+        ----------------------------
+ */
+
 package com.example.produtos.activity;
 
 import androidx.annotation.NonNull;
@@ -40,11 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
         List<String> permissions = new ArrayList<>();
         permissions.add(Manifest.permission.CAMERA);
-        permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         // Verificar se todas as permissões foram concedidas.
         checkForPermissions(permissions);
-
 
         RecyclerView rvProduct = findViewById(R.id.rvProducts);
         rvProduct.setHasFixedSize(true);
@@ -52,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rvProduct.setLayoutManager(layoutManager);
 
+        // Fazer a requisição pela lista de produtos e exibí-los na tela inicial.
         MainViewModel mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
         LiveData<List<Product>> products = mainViewModel.getProducts();
         products.observe(this, new Observer<List<Product>>() {
@@ -72,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Quando o produto for adicionado com sucesso, recarregar a lista para exibir esse produto novo nela.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

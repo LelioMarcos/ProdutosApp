@@ -2,24 +2,23 @@ package com.example.produtos.model;
 
 import android.graphics.Bitmap;
 
+// Classe que guarda as informações dos produtos.
 public class Product {
     String id;
     String name;
     String price;
     String description;
-    Bitmap photo;
 
     public Product(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Product(String id, String name, String price, String description, Bitmap photo) {
+    public Product(String id, String name, String price, String description) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
-        this.photo = photo;
     }
 
     public String getId() {
@@ -36,9 +35,5 @@ public class Product {
 
     public String getDescription() {
         return description;
-    }
-
-    public Bitmap getPhoto() {
-        return photo;
     }
 }
