@@ -20,5 +20,10 @@ public class MainViewModel extends ViewModel {
         return products;
     }
 
+    public void refreshProducts() {
+        loadProducts();
+    }
+
+
     void loadProducts() {}
 }
